@@ -51,36 +51,7 @@ def new_post(request):
     return render(request,'new_post.html',{'form':form})
     
 
-# @login_required(login_url = '/accounts/login/')
-# def newbiz(request):
-#     if request.method=='POST':
-#         form = NewBusinessForm(request.POST,request.FILES)
-#         if form.is_valid():
-#             post = form.save(commit=False)
-#             post.user = request.user
-#             post.save()
 
-#             return redirect('home')
-
-#     else:
-#         form = NewPostForm()
-#     return render(request,'newbiz.html',{'form':form})
-
-
-# @login_required(login_url = '/accounts/login/')
-# def newhood(request):
-#     if request.method=='POST':
-#         form = NewHoodForm(request.POST,request.FILES)
-#         if form.is_valid():
-#             post = form.save(commit=False)
-#             post.user = request.user
-#             post.save()
-
-#             return redirect('home')
-
-#     else:
-#         form = NewPostForm()
-#     return render(request,'newhood.html',{'form':form})
 
 @login_required(login_url = '/accounts/login/')
 def comment(request,id):
