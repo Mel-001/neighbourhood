@@ -136,11 +136,56 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
-STATIC_URL = 'static/'
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# adding config
+CLOUDINARY_STORAGE={
+  "CLOUD_NAME" : "dvw5lvtgn", 
+  "API_KEY" : "246526714253898", 
+  "API_SECRET " : "j-MhfuK3-h94Zxvr2JeCHK_Swuw" 
+}
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# adding config
+CLOUDINARY_STORAGE={
+  "CLOUD_NAME" : "dz9xjnzhe", 
+  "API_KEY" : "819771449194226", 
+  "API_SECRET " : "PQk1QAOFCfC8X-6c07Z-Z70MADc"
+}
+
+cloudinary.config( 
+  cloud_name = "dz9xjnzhe", 
+  api_key = "819771449194226", 
+  api_secret = "PQk1QAOFCfC8X-6c07Z-Z70MADc" 
+)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+django_heroku.settings(locals())
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+django_heroku.settings(locals())
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
