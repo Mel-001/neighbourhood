@@ -1,0 +1,68 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+{%block styles%}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+ integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+ integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+{%endblock%}
+{{block.super}}
+
+<div class="container">
+
+ <div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+   <div class="card">
+    <div class="card-header">
+     {{project.title}}
+    </div>
+    <div class="card-body">
+     <img width="100%" src=" {{post.image.url}}" alt="{{post.name}}">
+     <div class="description">
+      {{post.description}}
+     </div>
+     <div class="card-footer">
+      <b>Posted by:</b> {{post.user}} <br>
+      Business:  {{post.business.name}} <br>
+      Hood:  {{post.hood.name}} <br>
+      <a href="{%url 'comment' post.id%}" class="btn btn-primary" style="text-align: center;">Leave a comment</a>
+
+     </div>
+
+
+
+     <div class="card">
+      <div class="">
+       <div class="card-header">
+        <u> Reviews for {{post.title}} </u>
+       </div>
+       <div class="card-body">
+        {% for comment in comments%}
+        <h5><b> {{comment.text}}</b> </h5>
+        {%empty%}
+        <p>this project has no reviews </p>
+        {%endfor%}
+
+       </div>
+
+      </div>
+     </div>
+
+    </div>
+
+   </div>
+  </div>
+ </div>
+</div>
+
+
+
+
+<style>
+ .card {
+  margin-bottom: 2%;
+ }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
