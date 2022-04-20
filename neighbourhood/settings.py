@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'neighbourhood_app',
+    'hood',
     'cloudinary',
     'tinymce',
     'bootstrap4'
